@@ -4,4 +4,4 @@ export DBHOST=localhost
 export DBPORT=3306
 export DBNAME=webapplab
 
-go run main.go
+go run cmd/main.go

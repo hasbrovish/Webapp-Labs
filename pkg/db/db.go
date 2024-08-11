@@ -10,9 +10,10 @@ import (
 
 var db *sql.DB
 
-func initDB() {
+func InitDB() {
 	cfg := config.NewConfig()
 	var err error
+	fmt.Println(cfg.FormatDSN())
 	db, err = sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
 		log.Fatal(err)
