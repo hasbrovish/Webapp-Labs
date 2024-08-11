@@ -75,4 +75,22 @@ Analyses:
     2. [https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies](https://stackoverflow.com/questions/19867599/what-is-the-difference-between-localstorage-sessionstorage-session-and-cookies)
 3. MYSQL setup:
     1. This can be referred in case we need to create a new user in the database and provide grant access to all table related things . Nice article on Mysql set up : [https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04)
-    2.
+    
+
+    ---
+date: 11 aug 
+
+Create basic user create or show api to verify if db connection is working
+Req: (for db testing only)
+1. Create user in db directly via mysql cli
+2. Create a end point: /users/:user_id
+3. Use this user_id in ur controller to fetch the user and return the detail
+4. test via postman 
+
+Objective: U will learn to create basic unauth api -> db testing bhi hogi -> once u checked ki db is successful integrated -> remove this api and start on auth
+
+Doubts :
+- get clear with the project directory sturcture for golang 
+- controller vs handler??
+- where server should be kept ??
+- 

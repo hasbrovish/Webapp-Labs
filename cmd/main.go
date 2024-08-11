@@ -1,25 +1,19 @@
 package main
 
 import (
+	"fmt"
+	"log"
+	"net/http"
+
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/hasbrovish/Webapp-Labs/pkg/db"
+	"github.com/gorilla/mux"
+	"github.com/hasbrovish/Webapp-Labs/internal/handlers"
 )
 
 func main() {
-
-	db.InitDB()
-	// dsn := "root:Jayanti@123@tcp(localhost:3306)/webapplab?allowNativePasswords=true"
-	// db, err := sql.Open("mysql", dsn)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// defer db.Close()
-
-	// err = db.Ping()
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-
-	// log.Println("Connected successfully!")
-
+	r := mux.NewRouter()
+	handlers.RegisterUserHandler(r)
+	http.Handle("/", r)
+	fmt.Println("Starting server at 9090")
+	log.Fatal(http.ListenAndServe(":9090", r))
 }
