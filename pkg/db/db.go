@@ -25,7 +25,7 @@ func InitDB() {
 		cfg.DBName)
 	fmt.Println(databaseURI)
 	var err error
-	db, err = gorm.Open("mysql", databaseURI)
+	db, err := gorm.Open("mysql", databaseURI)
 	if err != nil {
 		log.Fatal(err)
 	}
