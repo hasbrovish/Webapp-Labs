@@ -93,4 +93,7 @@ Doubts :
 - get clear with the project directory sturcture for golang 
 - controller vs handler??
 - where server should be kept ??
-- 
+
+Sql: its database query languages, but its low level languages 
+
+Orm: as sql is low level language, developer face difficultly to write sql especially beginner -> for that we have ORM ( a set of classes which make database query easy, but when called -> internally orm convert to sql and make query to database)
