@@ -19,7 +19,7 @@ var RegisterUserHandler = func(router *mux.Router, db *gorm.DB, store *sessions.
 	router.HandleFunc("/login", services.LoginService(db, store)).Methods("POST") // Match password + session creation
 	//router.HandleFunc("/logout", services.LogoutService).Methods("GET")
 	router.Handle("/dashboard", AuthMiddleware(store)(http.HandlerFunc(DashboardHandler(db)))).Methods("GET")
-	//router.HandleFunc("/dashboard", services.Dashboard).Methods("GET")
+	router.HandleFunc("/logout", services.LogoutService(store)).Methods("GET")
 
 }
 
