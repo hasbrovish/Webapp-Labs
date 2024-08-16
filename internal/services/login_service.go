@@ -2,6 +2,7 @@ package services
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -42,6 +43,7 @@ func LoginService(db *gorm.DB, store *sessions.CookieStore) http.HandlerFunc {
 		session, _ := store.Get(r, "session-name")
 		session.Values["user_id"] = user.ID
 		session.Save(r, w)
+		fmt.Println(session.Values)
 		// Log the successful login
 		log.Printf("Login successful for user ID: %d", user.ID)
 
