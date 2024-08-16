@@ -96,4 +96,12 @@ Doubts :
 
 Sql: its database query languages, but its low level languages 
 
-Orm: as sql is low level language, developer face difficultly to write sql especially beginner -> for that we have ORM ( a set of classes which make database query easy, but when called -> internally orm convert to sql and make query to database)
+Orm: as sql is low level language, developer face difficultly to write sql
+especially beginne""""r -> for that we have ORM ( a set of classes which make
+database query easy, but when called -> internally orm convert to sql and make
+query to database)
+thiss is the thing
+
+
+
+
