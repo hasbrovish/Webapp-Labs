@@ -8,19 +8,6 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-// func LoginRepo(db *gorm.DB, email string, password string) (res models.User, err string) {
-
-// 	var user models.User
-// 	log.Println(email, password)
-// 	if err := db.Where("email = ?", email).First(&user).Error; err != nil {
-// 		return user, "Invalid email"
-// 	}
-
-//		if !utils.CheckPasswordHash(password, user.Password) {
-//			return user, "Invalid password"
-//		}
-//		return user, ""
-//	}
 func LoginRepo(db *gorm.DB, email string, password string) (models.User, string) {
 	var user models.User
 	log.Println("Login attempt with email:", email)
@@ -34,7 +21,7 @@ func LoginRepo(db *gorm.DB, email string, password string) (models.User, string)
 	log.Println("Stored hashed password:", user.Password)
 
 	// Compare the provided password with the hashed password in the database
-	if !utils.CheckPasswordHash(password, user.Password) {
+	if !utils.CheckPasswordHash(user.Password, password) {
 		log.Println("Password does not match")
 		return user, "Invalid password"
 	}

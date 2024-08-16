@@ -14,7 +14,7 @@ type User struct {
 	Firstname string    `gorm:"" json:"firstname"`
 	Lastname  string    `gorm:"" json:"lastname"`
 	Email     string    `gorm:"" json:"email"`
-	Password  []byte    `gorm:"" json:"-"` // this `-` is used to skip this field from response
+	Password  string    `json:"password"` // this `-` is used to skip this field from response
 	Gender    string    `gorm:"" json:"gender"`
 	Phone     int       `gorm:"" json:"phone"`
 	CreatedAt time.Time `gorm:"column:created_at;default:CURRENT_TIMESTAMP" json:"created_at"`

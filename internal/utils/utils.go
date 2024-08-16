@@ -3,6 +3,7 @@ package utils
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 
@@ -17,13 +18,14 @@ func ParseBody(r *http.Request, x interface{}) {
 	}
 }
 
-func CheckPasswordHash(password, hash string) bool {
+func CheckPasswordHash(hash, password string) bool {
+	fmt.Println(hash, password)
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
-	panic(err)
+	//panic(err)
 	return err == nil
 }
 
 func HashPassword(password string) (string, error) {
-	bytes, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	return string(bytes), err
 }
