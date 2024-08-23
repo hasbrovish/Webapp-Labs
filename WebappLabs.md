@@ -106,8 +106,9 @@ thiss is the thing
 ----------------------------------------------------------------------------------------------
 
 ## What am I doing ?
-
+----
 ### **Objective**:
+----
 - A webapp lab application where user can login , register and access Dashboard after successfully login . 
 - On dashboard user can use and create bash based labs.
 - User can also continue to use any existing lab which is not expired 
@@ -116,7 +117,7 @@ thiss is the thing
 
 
 ### **Implementation**
- 
+ ----
 #### **P0**: Authenticated api's [Session based] with Register| Signup / Login
 funtionality . 
 
@@ -126,36 +127,36 @@ funtionality .
   2. **API creation** : Here we can think through how many api are require for
      P0 . 
      4 api's are required :
-     - /register : 
-        Payload : `json
+        **/register** : 
+        Payload : ```json
             {
                 email : "xyz@gmail.com",
                 password : "123@123"
             }
-        `
+        ```
         Responses : 
         1. If user do not exists , same email id do not exits
-           `json
+            ```json
             {
                 status : "OK",
                 message : "User is registered successfully" 
             }
-           `
+           ```
         2. If user already exists:
-            `json
+            ```json
             {
                 status : "OK",
                 message : "UserId already registered please proceed with login" 
             }
-           `
+           ```
         3.  In case any server error 
             log in server 
-            `json
+            ```json
             {
                 status : "OK",
                 message : "UserId already registered please proceed with login" 
             }
-           `
+           ```
 
            TODO : https://www.baeldung.com/rest-api-error-handling-best-practices 
            // read above article to get how to frame a response and handel error    
