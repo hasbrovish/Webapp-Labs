@@ -128,7 +128,8 @@ funtionality .
      P0 . 
      4 api's are required :
         **/register** : 
-        Payload : ```json
+        Payload : 
+        ```json
             {
                 email : "xyz@gmail.com",
                 password : "123@123"
