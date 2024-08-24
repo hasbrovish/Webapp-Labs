@@ -59,7 +59,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Printf("Failed to create user: %v", err)
 		if err == models.ErrUserExists {
-			writeErrorResponse(w, http.StatusConflict, "User already exists", "User with this email already exists, please try logging in")
+			writeErrorResponse(w, http.StatusConflict, "User already exists", "This email id already exists")
 		} else {
 			writeErrorResponse(w, http.StatusInternalServerError, "Failed to create user", "An unexpected error occurred")
 		}
