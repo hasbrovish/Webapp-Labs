@@ -7,7 +7,14 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
         }
       },
       "root": "",
@@ -98,6 +105,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+                "includePaths": [
+                  "src/assets/css"
+                ]
+              },
             "scripts": []
           }
         }
@@ -105,6 +117,6 @@
     }
   },
   "cli": {
-    "analytics": "efa30109-c2aa-4fab-86b3-9b659a0855be"
+    "analytics": "46c76c6a-e715-4906-aa62-92571c44a5d7"
   }
 }
