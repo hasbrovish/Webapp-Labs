@@ -28,3 +28,16 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+
+todo :
+
+[]  /register , /login , /logout api integration
+[] all api are session based authenticated api 
+[] dashboard page creation fter login 
+[] open page creation before login
+[] checking api handling error and making some user case and unit testing
+[] reading about same origin point 
+[] cors reading and implementation 
+[] reading about server and client hosting
+
+![alt text](image-3.png)
