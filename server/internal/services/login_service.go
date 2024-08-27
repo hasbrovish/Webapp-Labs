@@ -58,6 +58,7 @@ func LoginService(db *gorm.DB, store *sessions.CookieStore) http.HandlerFunc {
 			http.Error(w, "Internal server error", http.StatusInternalServerError)
 			return
 		}
+		//utils.EnableCors(&w)
 
 		// Set the content type and status code
 		w.Header().Set("Content-Type", "application/json")

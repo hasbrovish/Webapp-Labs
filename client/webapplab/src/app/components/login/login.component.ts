@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import ValidateForm from '../../helpers/validateForm';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import ValidateForm from '../../helpers/validateForm';
 })
 export class LoginComponent implements OnInit{
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private auth: AuthService){}
   type: string = "password"
   eyeIcon: string = "fa-eye-slash"
   isText: boolean = false
@@ -32,6 +33,14 @@ export class LoginComponent implements OnInit{
   onSubmit(){
     if(this.loginForm.valid){
       console.log(this.loginForm)
+      this.auth.login(this.loginForm.value).subscribe({
+        next:(res=>{
+          alert(res.message)
+        }),
+        error:(err=>{
+          alert(err?.error.message)
+        })
+      })
     }
     else{
       ValidateForm.validateAllFormFields(this.loginForm)

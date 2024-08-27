@@ -65,7 +65,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
-
+	//utils.EnableCors(&w)
 	res, _ := json.Marshal(user)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)

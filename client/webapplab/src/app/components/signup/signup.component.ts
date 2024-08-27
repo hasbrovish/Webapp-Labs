@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import ValidateForm from '../../helpers/validateForm';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent {
   eyeIcon: string = "fa-eye-slash"
   isText: boolean = false
   signupForm!: FormGroup
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private auth : AuthService){}
   ngOnInit(): void {
       this.signupForm = this.fb.group({
         firstname : ['', Validators.required],
@@ -33,7 +34,16 @@ export class SignupComponent {
 
   onSubmit(){
     if(this.signupForm.valid){
-      console.log(this.signupForm.controls)
+      console.log(this.signupForm.value)
+      this.auth.signup(this.signupForm.value).subscribe({
+        next:(res=>{
+          alert(res.message)
+        }),
+        error:(err=>{
+          alert(err?.error.message)
+        })
+      })
+
     }
     else{
       console.log(this.signupForm)

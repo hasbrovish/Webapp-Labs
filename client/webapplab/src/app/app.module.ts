@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {ReactiveFormsModule} from '@angular/forms'
+import {  provideHttpClient, withFetch } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +18,11 @@ import {ReactiveFormsModule} from '@angular/forms'
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule
+   
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })

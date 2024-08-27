@@ -41,3 +41,6 @@ todo :
 [] reading about server and client hosting
 
 ![alt text](image-3.png)
+
+got cors error 
+![alt text](image-4.png)
