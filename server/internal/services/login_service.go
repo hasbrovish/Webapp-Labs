@@ -36,7 +36,24 @@ func LoginService(db *gorm.DB, store *sessions.CookieStore) http.HandlerFunc {
 		log.Println("Received email:", email, "and password:", password)
 		user, err := repositories.LoginRepo(db, email, password)
 		if err != "" {
-			http.Error(w, err, http.StatusUnauthorized)
+			//http.Error(w, err, http.StatusUnauthorized)
+			response := LoginResponse{
+				Message: err,
+			}
+
+			// Marshal the success message into JSON
+			jsonResponse, err2 := json.Marshal(response)
+			if err2 != nil {
+				//http.Error(w, "Internal server error", http.StatusInternalServerError)
+				response = LoginResponse{
+					Message: err,
+				}
+				w.WriteHeader(http.StatusInternalServerError)
+				w.Write(jsonResponse)
+			}
+			w.Header().Set("Content-Type", "application/json")
+			w.WriteHeader(http.StatusUnauthorized)
+			w.Write(jsonResponse)
 			return
 		}
 

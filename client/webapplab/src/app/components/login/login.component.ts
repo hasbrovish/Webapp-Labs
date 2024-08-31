@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit{
   eyeIcon: string = "fa-eye-slash"
   isText: boolean = false
   loginForm!:FormGroup
+  loginError : string = ''
 
   ngOnInit(): void {
   
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit{
           this.router.navigate(['dashboard'])
         }),
         error:(err=>{
-          alert(err?.error.message)
+         // alert(err?.error.message)
+          this.loginError = err?.error.message
         })
       })
     }
